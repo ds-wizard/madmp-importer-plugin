@@ -1,22 +1,35 @@
 import { Plugin } from '@ds-wizard/plugin-sdk/types'
-import { UserSettingsDataCodec } from './data/user-settings-data'
-import { SettingsDataCodec } from './data/settings-data'
+import { SettingsData, SettingsDataCodec } from './data/settings-data'
 import { PluginBuilder } from '@ds-wizard/plugin-sdk/core'
 import { pluginMetadata } from './metadata'
+import { makeNullCodec } from '@ds-wizard/plugin-sdk'
+import ImporterComponent from './components/ImporterComponent'
+import SettingsComponent from './components/SettingsComponent'
 
-export default function (settingsInput: unknown, userSettingsInput: unknown): Plugin {
-    // Use settings for plugin initialization or delete
-    // If you don't use settings change function arguments to _settingsInput and _userSettingsInput
+export default function (settingsInput: unknown, _userSettingsInput: unknown): Plugin {
     const settings = SettingsDataCodec.parseOrInit(settingsInput)
-    const userSettings = UserSettingsDataCodec.parseOrInit(userSettingsInput)
 
-    const plugin: Plugin = PluginBuilder.create(
-        pluginMetadata,
-        SettingsDataCodec,
-        UserSettingsDataCodec,
-    )
-        // Initialize your plugin components here
+    const plugin: Plugin = PluginBuilder.create(pluginMetadata, SettingsDataCodec, makeNullCodec())
+        .addProjectImporter(
+            'maDMP Importer',
+            'madmp-importer',
+            'x-madmp-importer',
+            ImporterComponent,
+            ['dsw:root:^2.4.0', 'dsw:lifesciencies:^2.4.0'].concat(parseExtraKmPatterns(settings)),
+        )
+        .addSettings('x-madmp-importer-settings', SettingsComponent)
         .createPlugin()
 
     return plugin
+}
+
+function parseExtraKmPatterns(settings: SettingsData): string[] {
+    if (!settings.extraKmPatterns) {
+        return []
+    }
+
+    return settings.extraKmPatterns
+        .split(/[,\n]/)
+        .map((name) => name.trim())
+        .filter(Boolean)
 }
