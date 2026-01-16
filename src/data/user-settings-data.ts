@@ -1,5 +1,5 @@
-import { z } from 'zod'
 import { makeJsonCodec } from '@ds-wizard/plugin-sdk/utils'
+import { z } from 'zod'
 
 // Define the plugin user settings data here or delete if not needed
 

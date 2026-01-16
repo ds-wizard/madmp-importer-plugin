@@ -1,10 +1,11 @@
-import { Plugin } from '@ds-wizard/plugin-sdk/types'
-import { SettingsData, SettingsDataCodec } from './data/settings-data'
-import { PluginBuilder } from '@ds-wizard/plugin-sdk/core'
-import { pluginMetadata } from './metadata'
 import { makeNullCodec } from '@ds-wizard/plugin-sdk'
+import { PluginBuilder } from '@ds-wizard/plugin-sdk/core'
+import { Plugin } from '@ds-wizard/plugin-sdk/types'
+
 import ImporterComponent from './components/ImporterComponent'
 import SettingsComponent from './components/SettingsComponent'
+import { SettingsData, SettingsDataCodec } from './data/settings-data'
+import { pluginMetadata } from './metadata'
 
 export default function (settingsInput: unknown, _userSettingsInput: unknown): Plugin {
     const settings = SettingsDataCodec.parseOrInit(settingsInput)
