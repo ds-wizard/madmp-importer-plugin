@@ -1,5 +1,5 @@
 import { ProjectImporterComponentProps } from '@ds-wizard/plugin-sdk/elements'
-import { SimpleImporter } from '@ds-wizard/plugin-sdk/ui/SimpleImporter'
+import { SimpleFileImporter } from '@ds-wizard/plugin-sdk/ui/SimpleFileImporter'
 
 import { SettingsData } from '../data/settings-data'
 import { importMaDMP } from '../importer/madmp-importer'
@@ -8,9 +8,9 @@ export default function ImporterComponent({
     onImport,
 }: ProjectImporterComponentProps<SettingsData, null>) {
     return (
-        <SimpleImporter
+        <SimpleFileImporter
             onImport={onImport}
-            heading="maDMP Importer"
+            heading="Import maDMP"
             label="Select maDMP (JSON)"
             description={
                 <p>

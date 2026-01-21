@@ -12,7 +12,7 @@ export default function (settingsInput: unknown, _userSettingsInput: unknown): P
 
     const plugin: Plugin = PluginBuilder.create(pluginMetadata, SettingsDataCodec, makeNullCodec())
         .addProjectImporter(
-            'maDMP Importer',
+            'maDMP',
             'madmp-importer',
             'x-madmp-importer',
             ImporterComponent,
