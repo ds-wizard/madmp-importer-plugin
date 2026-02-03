@@ -8,7 +8,7 @@ See the [Plugins](https://guide.ds-wizard.org/en/latest/more/self-hosted-dsw/con
 
 ## Changelog
 
-### 0.1.0
+### 1.0.0
 
 Initial version based on [DSW maDMP Importer](https://github.com/ds-wizard/dsw-madmp-importer).
 
