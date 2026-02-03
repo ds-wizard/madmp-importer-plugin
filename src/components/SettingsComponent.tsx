@@ -1,6 +1,7 @@
-import React from 'react'
-import { SettingsData } from '@/data/settings-data'
 import { SettingsComponentProps } from '@ds-wizard/plugin-sdk/elements'
+import React from 'react'
+
+import { SettingsData } from '@/data/settings-data'
 
 export default function SettingsComponent({
     settings,
