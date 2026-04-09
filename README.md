@@ -8,6 +8,10 @@ See the [Plugins](https://guide.ds-wizard.org/en/latest/more/self-hosted-dsw/con
 
 ## Changelog
 
+### 1.2.0
+
+Updated Plugin SDK to 0.8.0.
+
 ### 1.1.0
 
 Updated Plugin SDK to 0.7.0.
