@@ -2,6 +2,8 @@
 
 _Import from maDMP in JSON according to the [RDA DMP Common Standard](https://github.com/RDA-DMP-Common/RDA-DMP-Common-Standard)._
 
+Plugin UUID: `434b554b-0ba1-4272-b070-5682a1e13726`
+
 ## How to install
 
 See the [Plugins](https://guide.ds-wizard.org/en/latest/more/self-hosted-dsw/configuration/plugins.html) page in the DSW Guide for instructions on how to install the plugin.
