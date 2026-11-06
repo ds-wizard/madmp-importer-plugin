@@ -13,7 +13,7 @@ export default function ImporterComponent({
             heading="Import maDMP"
             label="Select maDMP (JSON)"
             description={
-                <p>
+                <>
                     Choose a machine-actionable Data Management Plan in JSON format that conforms to
                     the{' '}
                     <a
@@ -23,7 +23,7 @@ export default function ImporterComponent({
                         RDA DMP Common Standard
                     </a>
                     .
-                </p>
+                </>
             }
             importData={(importer, json, _km) => {
                 importMaDMP(importer, json)
